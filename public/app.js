@@ -8,6 +8,7 @@
     'video/mp4',
     'video/quicktime',
     'video/x-msvideo',
+    'video/avi',
     'video/x-matroska',
     'video/webm',
     'video/mpeg',
@@ -179,10 +180,9 @@
       a.remove();
       URL.revokeObjectURL(url);
 
-      statusText.textContent = 'Done!';
+      setDone();
     } catch (err) {
       showError(err.message);
-    } finally {
       setProcessing(false);
     }
   });
@@ -191,8 +191,14 @@
   // UI helpers
   // =========================================================
   function setProcessing(active) {
-    statusEl.hidden = !active;
-    statusText.textContent = 'Processing...';
+    if (active) {
+      statusEl.hidden = false;
+      statusText.textContent = 'Processing...';
+      document.querySelector('.spinner').hidden = false;
+    } else {
+      statusEl.hidden = true;
+    }
+
     mergeBtn.disabled = active;
     fileInput.disabled = active;
 
@@ -203,6 +209,27 @@
     fileList.querySelectorAll('.remove').forEach((btn) => {
       btn.disabled = active;
     });
+  }
+
+  function setDone() {
+    // Stop the spinner, show "Done!", re-enable UI
+    document.querySelector('.spinner').hidden = true;
+    statusText.textContent = 'Done! Your file is downloading.';
+    statusEl.hidden = false;
+
+    mergeBtn.disabled = files.length < 2;
+    fileInput.disabled = false;
+    fileList.querySelectorAll('li').forEach((li) => {
+      li.draggable = true;
+    });
+    fileList.querySelectorAll('.remove').forEach((btn) => {
+      btn.disabled = false;
+    });
+
+    // Auto-hide after 4 seconds
+    setTimeout(() => {
+      statusEl.hidden = true;
+    }, 4000);
   }
 
   function showError(message) {

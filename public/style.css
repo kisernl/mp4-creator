@@ -130,6 +130,10 @@ h1 {
   color: #555;
 }
 
+#status[hidden] {
+  display: none;
+}
+
 .spinner {
   width: 16px;
   height: 16px;
@@ -153,4 +157,8 @@ h1 {
   font-size: 0.85rem;
   line-height: 1.5;
   white-space: pre-wrap;
+}
+
+#error[hidden] {
+  display: none;
 }
