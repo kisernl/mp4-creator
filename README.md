@@ -4,11 +4,21 @@ A local web app that merges multiple video files into a single MP4. Upload video
 
 ## What it does
 
-- Accepts multiple video files (MP4, MOV, AVI, MKV, WebM)
+- Accepts multiple **MP4** video files
 - Lets you reorder them via drag-and-drop
 - Normalizes all videos to a consistent format (H.264, AAC, 720p, 30fps)
 - Concatenates them into a single MP4
 - Downloads the merged file to your machine
+
+### Supported formats
+
+| Format | Status |
+|--------|--------|
+| MP4    | Working |
+| MOV    | WIP |
+| AVI    | WIP |
+| MKV    | WIP |
+| WebM   | WIP |
 
 ## What it does NOT do
 
