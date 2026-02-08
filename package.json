@@ -1,0 +1,13 @@
+{
+  "name": "mp4-creator",
+  "version": "1.0.0",
+  "description": "Upload, reorder, and merge multiple videos into a single MP4",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.0",
+    "multer": "^1.4.5-lts.1"
+  }
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MP4 Creator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1>MP4 Creator</h1>
+    <p class="subtitle">Upload videos, drag to reorder, download a single MP4.</p>
+
+    <!-- File picker -->
+    <label class="file-label" for="file-input">Choose video files</label>
+    <input type="file" id="file-input" multiple accept="video/*" hidden>
+
+    <!-- Reorderable file list -->
+    <ol id="file-list"></ol>
+
+    <!-- Actions -->
+    <button id="merge-btn" disabled>Create MP4</button>
+
+    <!-- Processing indicator -->
+    <div id="status" hidden>
+      <span class="spinner"></span>
+      <span id="status-text">Processing...</span>
+    </div>
+
+    <!-- Error display -->
+    <div id="error" hidden></div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
