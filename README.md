@@ -72,7 +72,8 @@ The server will check for FFmpeg on startup and log a warning if it's missing.
 2. Each video is re-encoded to a consistent format (H.264 video, AAC audio, 720p max, 30fps)
 3. The normalized files are concatenated using FFmpeg's concat demuxer
 4. The merged MP4 is streamed back as a download
-5. All temporary files are deleted immediately after
+5. All temporary files are deleted immediately after (to check use: `ls $TMPDIR | grep mp4-merge`
+ &  `echo $TMPDIR`)
 
 ## Temp file storage
 
